@@ -5,20 +5,22 @@ project(Engine VERSION 1.0)
 set(CMAKE_CXX_STANDARD 14)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
 
+enable_testing()
+
 add_executable(Engine src/main.cxx)
 
 add_subdirectory(src/math)
 add_subdirectory(tests)
 target_link_libraries(Engine PUBLIC 3D-Math)
 
-enable_testing()
 
 
 configure_file(src/config.h.in src/config.h)
 
 target_include_directories(Engine PUBLIC
                           "${PROJECT_BINARY_DIR}"
-                          "${PROJECT_SOURCE_DIR}/math"
+                          "${PROJECT_SOURCE_DIR}/src/math"
+                          "${PROJECT_SOURCE_DIR}/tests"
                           )
 
 set_target_properties(Engine 3D-Math tests
