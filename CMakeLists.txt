@@ -11,6 +11,9 @@ add_subdirectory(src/math)
 add_subdirectory(tests)
 target_link_libraries(Engine PUBLIC 3D-Math)
 
+enable_testing()
+
+
 configure_file(src/config.h.in src/config.h)
 
 target_include_directories(Engine PUBLIC
