@@ -8,5 +8,6 @@ int main()
     std::cout << "Hello World: " << Engine_VERSION_MAJOR << "\n";
     std::cout << getVersion();
     std::cout << "\nMyVersion: " << MyVersion;
+    std::cout << "\nEnd";
     return 0;
 }
