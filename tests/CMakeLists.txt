@@ -10,6 +10,7 @@ FetchContent_MakeAvailable(googletest)
 add_executable(
   tests
   tests.cxx
+  Vector3_tests.cxx
 )
 target_link_libraries(
   tests
