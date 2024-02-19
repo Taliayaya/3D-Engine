@@ -78,3 +78,50 @@ TEST(Vector3, Normalize)
     auto misc{Vector3(8, 0, 0)};
     EXPECT_EQ(misc.Normalized(), Vector3(1, 0, 0));
 }
+
+TEST(Vector3, Addition)
+{
+    using Math::Vector3;
+    EXPECT_EQ(Vector3::zero + Vector3::zero, Vector3::zero);
+
+    EXPECT_EQ(Vector3::zero + Vector3::up, Vector3::up);
+
+    auto oneoneone{Vector3(1, 1, 1)};
+    EXPECT_EQ(Vector3::up + Vector3::right + Vector3::forward, oneoneone);
+}
+
+TEST(Vector3, Subtraction)
+{
+    using Math::Vector3;
+    EXPECT_EQ(Vector3::zero - Vector3::zero, Vector3::zero);
+
+    EXPECT_EQ(Vector3::zero - Vector3::up, Vector3::down);
+
+    auto oneoneone{Vector3(1, 1, 1)};
+    EXPECT_EQ(oneoneone - Vector3::up - Vector3::right - Vector3::forward, Vector3::zero);
+}
+
+TEST(Vector3, MultiplyScalar)
+{
+    using Math::Vector3;
+    EXPECT_EQ(Vector3::zero * 99, Vector3::zero);
+
+    auto fiveUp{Vector3(0, 5, 0)};
+    EXPECT_EQ(Vector3::up * 5, fiveUp);
+
+    auto fivefivefive{Vector3(5, 5, 5)};
+    EXPECT_EQ(5 * Vector3(1, 1, 1), fivefivefive);
+}
+
+TEST(Vector3, Dot)
+{
+    using Math::Vector3;
+
+    EXPECT_EQ(Vector3::zero * Vector3::zero, 0);
+    EXPECT_EQ(Vector3::up.Dot(Vector3::up), 1);
+    EXPECT_EQ(Vector3::down * Vector3::down, 1);
+
+    auto oneoneone{Vector3(1, 1, 1)};
+    auto neg_oneoneone{Vector3(-1, -1, -1)};
+    EXPECT_EQ(oneoneone * neg_oneoneone, -3);
+}
