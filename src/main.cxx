@@ -1,13 +1,15 @@
-# include <iostream>
+#include <iostream>
 
-# include "./math/Vector3.h"
-# include "config.h"
+#include "./math/Vector3.h"
+#include "./math/Matrix4.h"
+#include "config.h"
 
 int main()
 {
     std::cout << "Hello World: " << Engine_VERSION_MAJOR << "\n";
-    std::cout << getVersion();
-    std::cout << "\nMyVersion: " << MyVersion;
-    std::cout << "\nEnd";
+    Math::Matrix4 matrix{};
+    matrix.Print();
+    Math::Matrix4 matrix2{Math::Matrix4(5)};
+    matrix2.Print();
     return 0;
 }
