@@ -78,10 +78,10 @@ namespace Math
 
         constexpr float Dot(const Vector3 &other) const
         {
-            return {
+            return (
                 x * other.x +
                 y * other.y +
-                z * other.z};
+                z * other.z);
         }
 
         constexpr Vector3 Cross(const Vector3 &other) const
@@ -113,7 +113,7 @@ namespace Math
 
     static constexpr bool operator==(const Vector3 &vleft, const Vector3 &vright)
     {
-        return {vleft.x == vright.x && vleft.y == vright.y && vleft.z == vright.z};
+        return vleft.x == vright.x && vleft.y == vright.y && vleft.z == vright.z;
     }
 
     static constexpr Vector3 operator+(const Vector3 &vleft, const Vector3 &vright)
@@ -150,7 +150,7 @@ namespace Math
 
     static constexpr float operator*(const Vector3 &vleft, const Vector3 &vright)
     {
-        return {vleft.Dot(vright)};
+        return vleft.Dot(vright);
     }
 
 }
