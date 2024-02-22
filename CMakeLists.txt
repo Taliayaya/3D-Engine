@@ -9,9 +9,13 @@ enable_testing()
 
 add_executable(Engine src/main.cxx)
 
+
+find_package(glfw3 REQUIRED)
+
 add_subdirectory(src/math)
+add_subdirectory(src)
 add_subdirectory(tests)
-target_link_libraries(Engine PUBLIC 3D-Math)
+target_link_libraries(Engine PUBLIC 3D-Math EngineCode glfw)
 
 
 
